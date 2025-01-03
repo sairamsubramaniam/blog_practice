@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head>From Sairam Subramaniam</head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sairam Subramaniam</title>
+  <style>
+    .lp-intro {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .lp-pic {
+      grid-area: 1 / 1 / 2 / 2;
+      justify-self: center;
+    }
+    .lp-desc {
+      grid-area: 1 / 2 / 3 / 4;
+    }
+    .lp-li-gh {
+      grid-area 2 / 1 / 3 / 2;
+      justify-self: center;
+    }
+  </style>
+</head>
 <body>
-  <h1>Sairam Subramaniam</h1>
-  </br>
-  <p>DATA PROFESSIONAL - Analytics, Engineering, Management</p>
-  </br>
-  <p><a href="https://www.sairamsubramaniam.in/blog_home_page">Blog</a><p>
+  <main>
+    <div class="lp-intro">
+      <div class="lp-pic">
+        <img src="https://res.cloudinary.com/ss-da/image/upload/v1711691136/Sairam-Subramaniam-150x150_dnu72a.jpg" alt="Sairam Subramaniam">
+      </div>
+      <div class="lp-li-gh">
+        <p><a href="https://www.linkedin.com/in/sairam-subramaniam-05672513" target="_blank">LinkedIn</a></p>
+        <p><a href="https://github.com/sairamsubramaniam/blog_practice" target="_blank">GitHub</a></p>
+      </div>
+      <div class="lp-desc">
+        <p>Hey, this me: Sairam Subramaniam</p>
+        <p>My professional expertise spans:</p>
+        <ul>
+          <li>Data Analytics</li>
+          <li>Data Engineering</li>
+          <li>Product Management</li>
+        </ul>
+        <br>
+        <p>I share my thoughts at my blog here, do check it out</p>
+        <button type="button" onclick=" window.opwn('https://www.sairamsubramaniam.in/blog_home_page.html', '_blank')">Go To Blog</button>
+        <p>I also try to keep practising my professional skills, check them out here:</p>
+        <button type="button">Go To Practice Projects</button>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
