@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div style="margin: 20px; padding: 20px;">
+    {% for category, subcategory in articles.items() %}
+      <h2 style="margin-bottom: 10px;">{{ category }}</h2>
+      <br>
+      {% for sc, article_list in subcategory.items() %}
+        <div style="margin-left: 20px;">
+          <h3 style="margin-top: 10px; margin-bottom: 5px;">{{ sc }}</h3>
+          <ul style="list-style-position: inside; padding: 0; margin: 0;">
+            {% for article_title in article_list %}
+              <li style="margin-bottom: 5px; padding: 5px; border-bottom: 1px solid #ccc; margin-left: 20px;">
+                <a href="{{ url_for('blog_article', title=article_title) }}" target="_blank" rel="noopener noreferrer">{{ article_title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endblock %}
+

@@ -1,0 +1,46 @@
+<!-- templates/upload_article.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-File Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #file-list { width: 100%; max-width: 400px; height: 150px; border: 1px solid #ccc; overflow-y: auto; padding: 10px; margin-bottom: 10px; }
+        button { margin-right: 10px; padding: 8px 12px; border: none; cursor: pointer; }
+        #upload-draft { background-color: #f0ad4e; color: white; }
+        #upload-publish { background-color: #5cb85c; color: white; }
+    </style>
+</head>
+<body>
+    <h2>Upload Files</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+	{{ form.primary_category.label }} {{ form.primary_category() }}
+	<br>
+	{{ form.primary_sub_category.label }} {{ form.primary_sub_category() }}
+	<br>
+        {{ form.files() }}
+        <div id="file-list">Selected files will appear here...</div>
+	{{ form.submit_draft(id="upload-draft") }}
+	{{ form.publish(id="upload-publish") }}
+    </form>
+
+    {% raw %}
+    <script>
+        const fileInput = document.querySelector('input[type="file"]');
+        const fileList = document.getElementById('file-list');
+
+        fileInput.addEventListener('change', function(event) {
+            fileList.innerHTML = "";
+            for (const file of event.target.files) {
+                const div = document.createElement('div');
+                div.textContent = file.name;
+                fileList.appendChild(div);
+            }
+        });
+    </script>
+    {% endraw %}
+</body>
+</html>
+
