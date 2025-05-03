@@ -30,7 +30,7 @@ class User(UserMixin, db.Model):
     article_relation = so.relationship("Article", back_populates="user_relation")
 
     def set_password(self, psswrd):
-        self.password_hash = generate_password_hash(psswrd)
+        self.password = generate_password_hash(psswrd)
 
     def check_password(self, psswrd):
         return check_password_hash(self.password, psswrd)
